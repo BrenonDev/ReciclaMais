@@ -108,14 +108,22 @@ function Confirmation({ interpretation, onConfirm, onCorrect }: ConfirmationProp
   return (
     <section className="panel panel--highlight" aria-labelledby="confirmacao-titulo">
       <h2 id="confirmacao-titulo">{alternatives.length ? 'Qual destes é o seu caso?' : 'Entendemos que você quer descartar:'}</h2>
-      <p className="confirm__material">
-        <span className="material-card__icon"><MaterialIcon id={material.id} /></span>
-        {material.name}
-      </p>
-      <p className="confirm__examples">{material.examples}</p>
+      {alternatives.length === 0 && (
+        <>
+          <p className="confirm__material">
+            <span className="material-card__icon"><MaterialIcon id={material.id} /></span>
+            {material.name}
+          </p>
+          <p className="confirm__examples">{material.examples}</p>
+        </>
+      )}
       <div className="panel__actions">
-        <button type="button" className="button button--primary" onClick={() => onConfirm(material.id)}>
-          <Check aria-hidden="true" size={20} />
+        <button
+          type="button"
+          className={`button ${alternatives.length ? 'button--secondary' : 'button--primary'}`}
+          onClick={() => onConfirm(material.id)}
+        >
+          {alternatives.length === 0 && <Check aria-hidden="true" size={20} />}
           {alternatives.length ? material.name : 'Sim, ver pontos de coleta'}
         </button>
         {alternatives.map((alternative) => (
