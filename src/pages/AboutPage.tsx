@@ -67,7 +67,7 @@ export function AboutPage() {
               </div>
             </article>
             <article className="ods-card">
-              <span className="ods-card__number ods-card__number--12" aria-hidden="true">12</span>
+              <span className="ods-card__number" aria-hidden="true">12</span>
               <div>
                 <h3>Consumo e produção responsáveis</h3>
                 <p>Incentiva a reciclagem, o reaproveitamento de materiais e a destinação adequada dos resíduos.</p>
@@ -81,7 +81,7 @@ export function AboutPage() {
       <section className="section" aria-labelledby="funcionalidades-title">
         <div className="container">
           <h2 id="funcionalidades-title">Funcionalidades</h2>
-          <p className="section__lead">Todas as telas abaixo já podem ser usadas nesta versão.</p>
+          <p className="section__lead">Todas as funcionalidades abaixo já podem ser usadas nesta versão.</p>
           <ol className="feature-list">
             {FEATURES.map(([name, description]) => (
               <li key={name}>
